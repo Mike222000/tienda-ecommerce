@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado y navegación -->
+    <header>
+        <h1>Carrito de Compras</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="carrito.html">Carrito</a>
+        </nav>
+    </header>
+
+    <!-- Sección del carrito -->
+    <section class="carrito">
+        <h2>Tu Carrito</h2>
+        <div class="carrito-items">
+            <a href="productos.html" class="btn-volver">Volver a Productos</a>
+            <!-- Aquí se mostrarán los productos agregados al carrito -->
+        </div>
+        <div class="carrito-total">
+            <h3>Total: <span id="total-precio">0.00</span></h3>
+            <button class="btn-comprar">Finalizar Compra</button>
+        </div>
+    </section>
+
+    <script src="js/carrito.js"></script>
+</body>
+</html>
