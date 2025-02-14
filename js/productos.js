@@ -13,6 +13,7 @@ function agregarAlCarrito(event) {
     const producto = boton.parentElement;
     const nombre = producto.querySelector('.nombre').textContent;
     const precio = parseFloat(producto.querySelector('.precio').textContent.replace('$', ''));
+    const imagen = producto.querySelector('img').getAttribute('src');
     const id = boton.getAttribute('data-id');
 
     // Crear objeto del producto
@@ -20,6 +21,7 @@ function agregarAlCarrito(event) {
         id,
         nombre,
         precio,
+        imagen,
         cantidad: 1
     };
 

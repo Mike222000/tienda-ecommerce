@@ -10,6 +10,7 @@ const listaCarrito = document.querySelector('.carrito-items');
 function mostrarCarrito() {
     // Obtener carrito desde Local Storage
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const listaCarrito = document.querySelector('.carrito-items');
     
     // Limpiar contenido anterior
     listaCarrito.innerHTML = '';
@@ -23,12 +24,13 @@ function mostrarCarrito() {
 
     // Recorrer productos del carrito y generar HTML
     carrito.forEach(producto => {
-        const { id, nombre, precio, cantidad } = producto;
+        const { id, nombre, precio, cantidad, imagen } = producto;
         const item = document.createElement('div');
         item.classList.add('producto-carrito');
         item.innerHTML = `
+         <img src="${imagen}" alt="${nombre}" class="imagen-carrito">
             <h3>${nombre}</h3>
-            <p>Precio: ${precio}</p>
+            <p>Precio: $${precio}</p>
             <p>Cantidad: ${cantidad}</p>
             <button class="btn-eliminar" data-id="${id}">Eliminar</button>
         `;
