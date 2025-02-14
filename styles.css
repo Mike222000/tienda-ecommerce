@@ -39,12 +39,12 @@ nav ul li a:hover {
 
 /* Hero */
 .hero {
-    background-image: url('img/heroe.jpg');
+    background-image: url('img/fondo.avif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    color: #fff;
+    color: black;
     text-align: center;
     padding: 100px 20px;
     height: 100vh;
@@ -67,8 +67,8 @@ nav ul li a:hover {
 }
 
 .hero .btn {
-    background-color: #28a745;
-    color: white;
+    background-color: orange;
+    color: black ;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -78,7 +78,7 @@ nav ul li a:hover {
 }
 
 .hero .btn:hover {
-    background-color: #218838;
+    background-color: orange;
 }
 
 /* Pie de página */
@@ -123,8 +123,10 @@ footer {
 }
 
 .producto img {
-    max-width: 100%;
-    border-radius: 4px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .producto h2 {
