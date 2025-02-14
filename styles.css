@@ -92,18 +92,25 @@ footer {
 
 /* Responsive */
 @media (max-width: 600px) {
+    .hero {
+        padding: 50px 10px;
+        height: auto;
+    }
+
     .hero h2 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .hero p {
-        font-size: 16px;
+        font-size: 14px;
     }
 
-    nav ul {
-        flex-direction: column;
+    .hero .btn {
+        font-size: 16px;
+        padding: 8px 15px;
     }
 }
+
 
 .productos-grid {
     display: grid;
@@ -155,17 +162,35 @@ footer {
 }
 
 /* Media Queries para hacerlo responsive */
-@media (max-width: 992px) {
-    .productos-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 600px) {
     .productos-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .producto img {
+        width: 100%;
+        height: auto;
+    }
+
+    .producto {
+        padding: 10px;
     }
 }
+
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
 
 /* Estilos para el carrito */
 .carrito {
