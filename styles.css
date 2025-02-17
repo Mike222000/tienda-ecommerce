@@ -177,6 +177,7 @@ footer {
         width: 100%;  /* Asegúrate de usar 100% aquí también */
         font-size: 14px;
         padding: 8px;
+        position: fixed;
     }
 }
 
