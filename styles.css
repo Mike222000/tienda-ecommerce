@@ -1,4 +1,3 @@
-/* Reset básico */
 body, h1, h2, p, ul, li, a, button {
     margin: 0;
     padding: 0;
@@ -290,4 +289,5 @@ footer {
     flex-grow: 1;
     text-align: left;
 }
+
 
