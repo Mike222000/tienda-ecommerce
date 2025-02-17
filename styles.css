@@ -171,6 +171,15 @@ footer {
     }
 }
 
+@media (max-width: 600px) {
+    footer {
+        width: 100vw;
+        font-size: 14px; /* Ajusta el tamaño de letra si es necesario */
+        padding: 8px;    /* Ajusta el padding para pantallas pequeñas */
+    }
+}
+
+
 /* Estilos para el carrito */
 .carrito {
     width: 80%;
