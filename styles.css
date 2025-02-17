@@ -8,6 +8,7 @@ body, h1, h2, p, ul, li, a, button {
 body {
     background-color: #f4f4f9;
     color: #333;
+    overflow-x: hidden;
 }
 
 /* Encabezado */
@@ -87,8 +88,9 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    width: 100vw; /* Asegura que ocupe todo el ancho */
+    width: 100%; /* Asegura que ocupe todo el ancho */
     left: 0;
+    position: fixed;
     bottom: 0;
 }
 
@@ -172,11 +174,12 @@ footer {
 
 @media (max-width: 600px) {
     footer {
-        width: 100vw;
-        font-size: 14px; /* Ajusta el tamaño de letra si es necesario */
-        padding: 8px;    /* Ajusta el padding para pantallas pequeñas */
+        width: 100%;  /* Asegúrate de usar 100% aquí también */
+        font-size: 14px;
+        padding: 8px;
     }
 }
+
 
 
 /* Estilos para el carrito */
