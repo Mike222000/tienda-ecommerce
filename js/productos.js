@@ -1,16 +1,14 @@
-// js/productos.js
-
-// Obtener todos los botones de "Agregar al carrito"
-
 console.log('productos.js cargado');
 
+// Seleccionar todos los botones de agregar al carrito
 const botonesAgregar = document.querySelectorAll('.btn-agregar');
 
-// Función para agregar producto al carrito
+// Función para agregar un producto al carrito
 function agregarAlCarrito(event) {
-    // Obtener el producto seleccionado
     const boton = event.target;
     const producto = boton.parentElement;
+
+    // Obtener los datos del producto
     const nombre = producto.querySelector('.nombre').textContent;
     const precio = parseFloat(producto.querySelector('.precio').textContent.replace('$', ''));
     const imagen = producto.querySelector('img').getAttribute('src');
@@ -25,13 +23,14 @@ function agregarAlCarrito(event) {
         cantidad: 1
     };
 
-    // Obtener carrito actual desde Local Storage
+    // Obtener el carrito desde localStorage o inicializarlo vacío
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     // Verificar si el producto ya está en el carrito
     const existe = carrito.some(producto => producto.id === id);
+
     if (existe) {
-        // Actualizar cantidad si el producto ya está en el carrito
+        // Si ya está en el carrito, incrementar su cantidad
         carrito = carrito.map(producto => {
             if (producto.id === id) {
                 producto.cantidad++;
@@ -39,16 +38,18 @@ function agregarAlCarrito(event) {
             return producto;
         });
     } else {
-        // Agregar nuevo producto al carrito
+        // Si no está en el carrito, agregarlo
         carrito.push(productoSeleccionado);
     }
 
-    // Guardar carrito actualizado en Local Storage
+    // Guardar el carrito actualizado en localStorage
     localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    // Mostrar alerta de confirmación
     alert('Producto agregado al carrito');
 }
 
-// Asignar evento de clic a cada botón
+// Asignar el evento de clic a todos los botones de agregar al carrito
 botonesAgregar.forEach(boton => {
     boton.addEventListener('click', agregarAlCarrito);
 });
