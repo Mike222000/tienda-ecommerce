@@ -14,19 +14,19 @@ function mostrarCarrito() {
 
     carrito.forEach(producto => {
         const { id, nombre, precio, cantidad, imagen } = producto;
+        console.log('Imagen guardada en localStorage:', imagen);
         const item = document.createElement('div');
         item.classList.add('producto-carrito');
 
         item.innerHTML = `
     <picture>
-        <source srcset="${imagen.replace('.jpg', '-avif.avif')}" type="image/avif">
-        <source srcset="${imagen.replace('.jpg', '-webp.webp')}" type="image/webp">
+        <source srcset="${imagen.replace('.jpg', '.webp')}" type="image/webp">
         <img 
             src="${imagen}" 
             srcset="
-                ${imagen.replace('.jpg', '-400w.jpg')} 400w,
-                ${imagen.replace('.jpg', '-800w.jpg')} 800w,
-                ${imagen.replace('.jpg', '-1200w.jpg')} 1200w
+                ${imagen.replace('.webp', '-400w.webp')} 400w,
+                ${imagen.replace('.webp', '-800w.webp')} 800w,
+                ${imagen.replace('.webp', '-1200w.webp')} 1200w
             "
             sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px"
             alt="${nombre}" 
@@ -41,6 +41,14 @@ function mostrarCarrito() {
 
         listaCarrito.appendChild(item);
     });
+
+    document.addEventListener("click", function(event) {
+        if (event.target.classList.contains("btn-agregar")) {
+            let idProducto = event.target.getAttribute("data-id");
+            agregarAlCarrito(idProducto);
+        }
+    });
+    
 
     // Agregar eventos a los botones de eliminar
     const botonesEliminar = document.querySelectorAll('.btn-eliminar');
