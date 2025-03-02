@@ -18,12 +18,26 @@ function mostrarCarrito() {
         item.classList.add('producto-carrito');
 
         item.innerHTML = `
-            <img src="${imagen}" alt="${nombre}" class="imagen-carrito">
-            <h3>${nombre}</h3>
-            <p>Precio: $${precio}</p>
-            <p>Cantidad: ${cantidad}</p>
-            <button class="btn-eliminar" data-id="${id}">Eliminar</button>
-        `;
+    <picture>
+        <source srcset="${imagen.replace('.jpg', '-avif.avif')}" type="image/avif">
+        <source srcset="${imagen.replace('.jpg', '-webp.webp')}" type="image/webp">
+        <img 
+            src="${imagen}" 
+            srcset="
+                ${imagen.replace('.jpg', '-400w.jpg')} 400w,
+                ${imagen.replace('.jpg', '-800w.jpg')} 800w,
+                ${imagen.replace('.jpg', '-1200w.jpg')} 1200w
+            "
+            sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px"
+            alt="${nombre}" 
+            class="imagen-carrito">
+    </picture>
+    <h3>${nombre}</h3>
+    <p>Precio: $${precio}</p>
+    <p>Cantidad: ${cantidad}</p>
+    <button class="btn-eliminar" data-id="${id}">Eliminar</button>
+`;
+
 
         listaCarrito.appendChild(item);
     });

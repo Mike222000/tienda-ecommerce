@@ -19,67 +19,120 @@
     </header>
 
     <!-- Sección de Productos -->
-    <main>
-        <section class="productos-grid">
-            <div class="producto">
-                <img src="img/zapatos.jpg" alt="Producto 1" loading="lazy">
-                <h3 class="nombre">Zapatos</h3>
-                <p class="precio">$100</p>
-                <button class="btn-agregar" data-id="1">Agregar al carrito</button>
-            </div>
+    <div class="producto">
+        <picture>
+            <source srcset="img/zapatos-400w.webp 400w, img/zapatos-800w.webp 800w, img/zapatos-1200w.webp 1200w" type="image/webp">
+            <img 
+                src="img/zapatos-800w.jpg" 
+                srcset="
+                    img/zapatos-400w.jpg 400w,
+                    img/zapatos-800w.jpg 800w,
+                    img/zapatos-1200w.jpg 1200w
+                "
+                sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px"
+                alt="Zapatos"
+                loading="lazy">
+        </picture>
+        <h3 class="nombre">Zapatos</h3>
+        <p class="precio">$100</p>
+        <button class="btn-agregar" data-id="1">Agregar al carrito</button>
+    </div>
+    
+    <div class="producto">
+        <picture>
+            <source srcset="img/chaqueta-400w.webp 400w, img/chaqueta-800w.webp 800w, img/chaqueta-1200w.webp 1200w" type="image/webp">
+            <img 
+                src="img/chaqueta-800w.jpg" 
+                srcset="
+                    img/chaqueta-400w.jpg 400w,
+                    img/chaqueta-800w.jpg 800w,
+                    img/chaqueta-1200w.jpg 1200w
+                "
+                sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px"
+                alt="Chaqueta"
+                loading="lazy">
+        </picture>
+        <h3 class="nombre">Chaqueta</h3>
+        <p class="precio">$70</p>
+        <button class="btn-agregar" data-id="2">Agregar al carrito</button>
+    </div>
+    
+    <div class="producto">
+        <picture>
+            <source srcset="img/camisa-400w.webp 400w, img/camisa-800w.webp 800w, img/camisa-1200w.webp 1200w" type="image/webp">
+            <img 
+                src="img/camisa-800w.jpg" 
+                srcset="
+                    img/camisa-400w.jpg 400w,
+                    img/camisa-800w.jpg 800w,
+                    img/camisa-1200w.jpg 1200w
+                "
+                sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px"
+                alt="Camisa"
+                loading="lazy">
+        </picture>
+        <h3 class="nombre">Camisa</h3>
+        <p class="precio">$80</p>
+        <button class="btn-agregar" data-id="3">Agregar al carrito</button>
+    </div>
+    
+    <div class="producto">
+        <picture>
+            <source srcset="img/jean2-400w.webp 400w, img/jean2-800w.webp 800w, img/jean2-1200w.webp 1200w" type="image/webp">
+            <img 
+                src="img/jean2-800w.jpg" 
+                srcset="
+                    img/jean2-400w.jpg 400w,
+                    img/jean2-800w.jpg 800w,
+                    img/jean2-1200w.jpg 1200w
+                "
+                sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px"
+                alt="Jean"
+                loading="lazy">
+        </picture>
+        <h3 class="nombre">Jean</h3>
+        <p class="precio">$30</p>
+        <button class="btn-agregar" data-id="4">Agregar al carrito</button>
+    </div>
+    
+    <div class="producto">
+        <picture>
+            <source srcset="img/correa-400w.webp 400w, img/correa-800w.webp 800w, img/correa-1200w.webp 1200w" type="image/webp">
+            <img 
+                src="img/correa-800w.jpg" 
+                srcset="
+                    img/correa-400w.jpg 400w,
+                    img/correa-800w.jpg 800w,
+                    img/correa-1200w.jpg 1200w
+                "
+                sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px"
+                alt="Correa"
+                loading="lazy">
+        </picture>
+        <h3 class="nombre">Correa</h3>
+        <p class="precio">$10</p>
+        <button class="btn-agregar" data-id="5">Agregar al carrito</button>
+    </div>
 
-            <div class="producto">
-                <img src="img/chaqueta.jpg" alt="Producto 2" loading="lazy">
-                <h3 class="nombre">Chaqueta</h3>
-                <p class="precio">$70</p>
-                <button class="btn-agregar" data-id="2">Agregar al carrito</button>
-            </div>
-            <div class="producto">
-                <img src="img/camisa.webp" alt="Producto 3" loading="lazy">
-                <h3 class="nombre">Camisa</h3>
-                <p class="precio">$80</p>
-                <button class="btn-agregar" data-id="3">Agregar al carrito</button>
-            </div>
-            <div class="producto">
-                <img src="img/jean2.jpg" alt="Producto 4" loading="lazy">
-                <h3 class="nombre">Jean</h3>
-                <p class="precio">$30</p>
-                <button class="btn-agregar" data-id="4">Agregar al carrito</button>
-            </div>
-            <div class="producto">
-                <img src="img/correa.webp" alt="Producto 5" loading="lazy">
-                <h3 class="nombre">Correa</h3>
-                <p class="precio">$10</p>
-                <button class="btn-agregar" data-id="5">Agregar al carrito</button>
-            </div>
-            <div class="producto">
-                <img src="img/billetera.jpg" alt="Producto 6" loading="lazy">
-               <h3 class="nombre">Billetera</h3>
-               <p class="precio">$50</p>
-                <button class="btn-agregar" data-id="6">Agregar al carrito</button>
-            </div>
-            <div class="producto">
-                <img src="img/billetera.jpg" alt="Producto 7" loading="lazy">
-               <h3 class="nombre">Billetera</h3>
-               <p class="precio">$50</p>
-                <button class="btn-agregar" data-id="7">Agregar al carrito</button>
-            </div>
-            <div class="producto">
-                <img src="img/billetera.jpg" alt="Producto 8" loading="lazy">
-               <h3 class="nombre">Billetera</h3>
-               <p class="precio">$50</p>
-                <button class="btn-agregar" data-id="8">Agregar al carrito</button>
-            </div>
-            <div class="producto">
-                <img src="img/billetera.jpg" alt="Producto 9" loading="lazy">
-               <h3 class="nombre">Billetera</h3>
-               <p class="precio">$50</p>
-                <button class="btn-agregar" data-id="9">Agregar al carrito</button>
-            </div>
-        </section>
-        <script src="js/productos.js"></script>
-        </main>
-
+    <div class="producto">
+        <picture>
+            <source srcset="img/billetera-400w.webp 400w, img/billetera-800w.webp 800w, img/billetera-1200w.webp 1200w" type="image/webp">
+            <img 
+                src="img/billetera-800w.jpg" 
+                srcset="
+                    img/billetera-400w.jpg 400w,
+                    img/billetera-800w.jpg 800w,
+                    img/billetera-1200w.jpg 1200w
+                "
+                sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px"
+                alt="Billetera"
+                loading="lazy">
+        </picture>
+        <h3 class="nombre">Billetera</h3>
+        <p class="precio">$50</p>
+        <button class="btn-agregar" data-id="6">Agregar al carrito</button>
+    </div>
+        
     <!-- Pie de página -->
     <footer>
         <p>&copy; 2025 Tienda en Línea</p>
