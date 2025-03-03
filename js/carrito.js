@@ -82,12 +82,30 @@ function eliminarProducto(event) {
     const id = event.target.getAttribute('data-id');
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-    carrito = carrito.filter(producto => String(producto.id) !== String(id));
+    carrito = eliminarDelCarrito(carrito, Number(id));
 
     localStorage.setItem('carrito', JSON.stringify(carrito));
     mostrarCarrito();
     calcularTotal();
 }
+
+// carrito.js
+
+function agregarAlCarrito(carrito, producto) {
+    carrito.push(producto);
+    return carrito;
+}
+
+// Función para eliminar un producto del carrito
+function eliminarDelCarrito(carrito, id) {
+    return carrito.filter(producto => producto.id !== id);
+}
+
+
+module.exports = { agregarAlCarrito, eliminarDelCarrito };
+
+
+
 
 // Mostrar el carrito al cargar la página
 document.addEventListener('DOMContentLoaded', mostrarCarrito);
