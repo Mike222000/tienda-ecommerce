@@ -2,11 +2,12 @@
   "name": "tiendaonline",
   "version": "1.0.0",
   "main": "index.js",
-    "type": "module",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
   "jest": {
+    "transform": {},
     "testEnvironment": "jsdom"
   },
   "keywords": [],
@@ -16,6 +17,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "jest-esm-transformer": "^1.0.0"
+    "babel-jest": "^29.7.0",
+    "@babel/preset-env": "^7.22.0"
   }
 }
