@@ -33,7 +33,7 @@ export function mostrarCarrito() {
                     class="imagen-carrito">
             </picture>
             <h3>${nombre}</h3>
-            <p>Precio: $${precio}</p>
+            <p>Precio: $${precio.toFixed(2)}</p>
             <p>Cantidad: ${cantidad}</p>
             <button class="btn-eliminar" data-id="${id}">Eliminar</button>
         `;
@@ -42,12 +42,9 @@ export function mostrarCarrito() {
     });
 
     // Agregar eventos a los botones de eliminar
-    listaCarrito.addEventListener('click', function(event) {
-        if (event.target.classList.contains('btn-eliminar')) {
-            eliminarProducto(event);
-        }
+    document.querySelectorAll('.btn-eliminar').forEach(boton => {
+        boton.addEventListener('click', eliminarProducto);
     });
-    
 
     calcularTotal();
 }
@@ -76,7 +73,6 @@ export function eliminarProducto(event) {
     calcularTotal();
 }
 
-
 // Función para agregar un producto al carrito
 export function agregarAlCarrito(idProducto) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -86,5 +82,24 @@ export function agregarAlCarrito(idProducto) {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-// Mostrar el carrito al cargar la página
+// 🔹 **Envío de producto al backend (corregido)**
+fetch('https://localhost:5000/api/cart', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}` // Corregido
+    },
+    body: JSON.stringify({ productId: 1, quantity: 1 })
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Error al agregar producto al carrito');
+    }
+    return response.json();
+})
+.then(data => console.log('Producto agregado:', data))
+.catch(error => console.error('Error al agregar al carrito:', error));
+
+// 🔹 **Mostrar el carrito al cargar la página**
 document.addEventListener('DOMContentLoaded', mostrarCarrito);
+

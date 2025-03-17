@@ -53,3 +53,37 @@ function agregarAlCarrito(event) {
 botonesAgregar.forEach(boton => {
     boton.addEventListener('click', agregarAlCarrito);
 });
+
+// 🔹 Obtener productos desde el backend y mostrarlos en la página
+fetch('https://localhost:5000/api/products')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Productos obtenidos:', data);
+        
+        const contenedorProductos = document.querySelector('#productos-container');
+        if (contenedorProductos) {
+            contenedorProductos.innerHTML = ''; // Limpiar el contenedor antes de agregar los productos
+            data.forEach(producto => {
+                const productoHTML = `
+                    <div class="producto">
+                        <img src="${producto.imagen}" alt="${producto.nombre}">
+                        <h3 class="nombre">${producto.nombre}</h3>
+                        <p class="precio">$${producto.precio.toFixed(2)}</p>
+                        <button class="btn-agregar" data-id="${producto.id}">Agregar al carrito</button>
+                    </div>
+                `;
+                contenedorProductos.innerHTML += productoHTML;
+            });
+
+            // Reasignar eventos a los botones de "Agregar al carrito" después de cargarlos dinámicamente
+            document.querySelectorAll('.btn-agregar').forEach(boton => {
+                boton.addEventListener('click', agregarAlCarrito);
+            });
+        }
+    })
+    .catch(error => console.error('Error al obtener productos:', error));
